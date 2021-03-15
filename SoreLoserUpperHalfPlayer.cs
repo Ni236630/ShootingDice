@@ -12,6 +12,23 @@ namespace ShootingDice
             return new Random().Next(3, 6);
         }
 
-        
+        public override void Play(Player other)
+        {
+            int myRoll = Roll();
+            int otherRoll = other.Roll(); 
+
+
+            Console.WriteLine($"{Name} rolls a {myRoll}");
+            Console.WriteLine($"{other.Name} rolls a {otherRoll}");
+            if (myRoll > otherRoll)
+            {
+                Console.WriteLine($"{Name} Wins!");
+            }
+            else 
+            {
+                throw new Exception("You must be cheating!");
+            }
+            }
+        }
     }
 }
